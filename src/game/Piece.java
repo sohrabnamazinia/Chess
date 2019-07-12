@@ -3,10 +3,10 @@ package game;
 import java.util.*;
 
 public abstract class Piece{
-    protected int y;
-    protected char x;
-    protected boolean color;
-    private String name;
+    public int y;
+    public char x;
+    public boolean color;
+    public String name;
 
     public Piece(char x, int y, boolean color, String name){
         setX(x);
