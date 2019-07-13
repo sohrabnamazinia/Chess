@@ -2,22 +2,14 @@ package game;
 
 import java.util.*;
 
-/**
- * Rook Class
- */
+
 public class Rook extends Piece{
 
     public Rook(char x, int y, boolean color, String name){
         super(x, y, color, name);
     }
 
-    /**
-     * Check if can move to (X, Y)
-     * @author Omiid
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @return true if can move
-     */
+
     public boolean canMove(char x, int y){ // Ignore the presence of other pieces
         if( this.x - x == 0 || this.y - y == 0 ){
 
@@ -26,14 +18,7 @@ public class Rook extends Piece{
         return false;
     }
 
-    /**
-     * Check if can move to (X, Y) : Used for queen class
-     * @author Omiid
-     * @param p the piece to move
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @return true if can move
-     */
+
     public static boolean canMove(Piece p, char x, int y){ // Ignore the presence of other pieces
         if( p.x - x == 0 || p.y - y == 0 ){
 
@@ -42,14 +27,7 @@ public class Rook extends Piece{
         return false;
     }
 
-    /**
-     * Check if way is free to go
-     * @param pieces ArrayList of all pieces
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @author Omiid
-     * @return true if is free to go
-     */
+
     public boolean checkWay(ArrayList<Piece> pieces, char x, int y){
         int xShift = 0;
         int yShift = 0;
@@ -78,16 +56,7 @@ public class Rook extends Piece{
         }
     }
 
-    /**
-     * Check if way is free to go
-     *
-     * @param p the piece to check
-     * @param pieces ArrayList of all pieces
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @author Omiid
-     * @return true if is free to go
-     */
+
     public static boolean checkWay(Piece p, ArrayList<Piece> pieces, char x, int y){
         int xShift = 0;
         int yShift = 0;

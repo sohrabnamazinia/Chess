@@ -18,13 +18,7 @@ public class Pawn extends Piece{
         return this.firstMove;
     }
 
-    /**
-     * Check if can move to (X, Y)
-     * @author Omiid
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @return true if can move
-     */
+
     public boolean canMove(char x, int y){ // Ignore the presence of other pieces
         if( this.x - x == 0 ){
 
@@ -45,13 +39,7 @@ public class Pawn extends Piece{
         return false;
     }
 
-    /**
-     * Check if doing a cross move
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @author Omiid
-     * @return true if doing a cross move
-     */
+
     @Override
     public boolean crossMove(char x, int y){
         if( Math.abs(this.x - x) == 1 && Math.abs(this.y - y) == 1 ){
@@ -61,14 +49,7 @@ public class Pawn extends Piece{
         return false;
     }
 
-    /**
-     * Check if way is free to go
-     * @param pieces ArrayList of all pieces
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @author Omiid
-     * @return true if is free to go
-     */
+
     public boolean checkWay(ArrayList<Piece> pieces, char x, int y){
         if( Math.abs(this.x - x) == 1 && Math.abs(this.y - y) == 1 ){
 
