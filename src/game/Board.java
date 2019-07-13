@@ -78,7 +78,8 @@ public class Board{
             this.blackPieces.add(newPawn);
         }
         //  Rook
-        for(char ch = 'A'; ch < 'I'; ch += 7){
+        for(char ch = 'A'; ch < 'I'; ch += 7)
+        {
             Rook newRook = new Rook(ch, 8, false, "BR");
             this.blackPieces.add(newRook);
         }
