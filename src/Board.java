@@ -458,6 +458,82 @@ public class Board{
             return false;
         }
     }
+    public boolean canAttack(Piece p, char x, int y, String color){
+        ArrayList<Piece> selector = null;
+        ArrayList<Piece> enemy    = null;
+        Piece found   = p;
+        boolean toBusy  = false;
+        Piece attack    = null;
+        boolean booleanColor = false;
+        if( color.equals("W") ){
+
+            selector  = this.whitePieces;
+            enemy     = this.blackPieces;
+            toBusy    = isTakenByWhite(y, x);
+            attack    = takenByBlack(y, x);
+            booleanColor = true;
+        }else{
+            selector  = this.blackPieces;
+            enemy     = this.whitePieces;
+            toBusy    = isTakenByBlack(y, x);
+            attack    = takenByWhite(y, x);
+        }
+        if( found.getColor() == booleanColor && !toBusy ){// Found and to is not busy
+
+            if( kingCheck(selector, enemy) && !(found instanceof King) ){
+
+                return false;
+            }else{
+                if( found.canMove(x, y) ){ // Check if move is valid
+
+                    if( found.checkWay(this.allPieces, x, y) ){
+
+                        if( (found instanceof Pawn) && found.crossMove(x, y) ){
+
+                            if( attack == null ){
+
+                                return false;
+                            }else{
+                                if( y == attack.getY() && x == attack.getX() ){
+
+                                    if( found.color && y < found.getY() ){
+
+                                        return true;
+                                    }else if( !found.color && found.getY() < y ){
+
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                }else{
+                                    return false;
+                                }
+                            }
+                        }else if( (found instanceof Pawn) && attack != null && found.getX() - attack.getX() == 0 ){
+
+                            return false;
+                        }else if( (found instanceof King) && virtualCheck(enemy, x, y)){
+
+                            return false;
+                        }else{
+                            if( attack != null ){
+
+                                return true;
+                            }else{
+                                return false;
+                            }
+                        }
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return false;
+                }
+            }
+        }else{
+            return false;
+        }
+    }
 
 
 }

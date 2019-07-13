@@ -34,14 +34,14 @@ public class NewJButton extends JButton
         this.Y = Y;
         Image img = null;
 
-        try
-        {
-           //it will soon be completed by next push
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+//        try
+//        {
+//           //it will soon be completed by next push
+//        }
+//        catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
 
         this.setIcon(new ImageIcon(img));
     }
