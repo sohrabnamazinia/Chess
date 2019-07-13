@@ -343,11 +343,7 @@ public class Board{
         }
     }
 
-    /**
-     * Check which player is checkmated
-     * @author Omiid
-     * @return W for white, B for Black
-     */
+  
     public String checkMate(){
         if( kingMate(this.blackPieces, this.whitePieces) ){
 
