@@ -1,29 +1,22 @@
 package game;
 
+import game.*;
+
 import java.util.*;
 
-/**
- * Maind board used for logic
- */
+
 public class Board{
     private ArrayList<Piece> whitePieces;
     private ArrayList<Piece> blackPieces;
     private ArrayList<Piece> allPieces;
 
-    /**
-     * Board Constructor for logic
-     */
+
     public Board(){
         this.whitePieces = new ArrayList<Piece>();
         this.blackPieces = new ArrayList<Piece>();
     }
 
-    /**
-     * Board constructor for ui
-     * @author Omiid
-     * @param whitePieces ArrayList of all white pieces
-     * @param blackPieces ArrayList of all black pieces
-     */
+
     public Board(ArrayList<Piece> whitePieces, ArrayList<Piece> blackPieces){
         this.whitePieces = whitePieces;
         this.blackPieces = blackPieces;
@@ -40,9 +33,7 @@ public class Board{
         return this.allPieces;
     }
 
-    /**
-     * Initial run of logic
-     */
+
     public void initPieces(){
         // White Players
         //  Pawns
@@ -78,8 +69,7 @@ public class Board{
             this.blackPieces.add(newPawn);
         }
         //  Rook
-        for(char ch = 'A'; ch < 'I'; ch += 7)
-        {
+        for(char ch = 'A'; ch < 'I'; ch += 7){
             Rook newRook = new Rook(ch, 8, false, "BR");
             this.blackPieces.add(newRook);
         }
@@ -101,13 +91,7 @@ public class Board{
         this.blackPieces.add(blackKing);
     }
 
-    /**
-     * Check if any white player is present at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return true if is present
-     */
+
     public boolean isTakenByWhite(int y, char x){
         boolean flag = false;
         for( Piece p : whitePieces ){
@@ -120,13 +104,7 @@ public class Board{
         return flag;
     }
 
-    /**
-     * Check if any black player is present at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return true if is present
-     */
+
     public boolean isTakenByBlack(int y, char x){
         boolean flag = false;
         for( Piece p : blackPieces ){
@@ -139,13 +117,7 @@ public class Board{
         return flag;
     }
 
-    /**
-     * Check if piece available at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return true if is present
-     */
+
     public boolean isTaken(int y, char x){
         boolean flag = false;
         flag = isTakenByWhite(y, x);
@@ -154,13 +126,7 @@ public class Board{
         return flag;
     }
 
-    /**
-     * Find white piece at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return piece available at (X, Y)
-     */
+
     public Piece takenByWhite(int y, char x){
         Piece newPiece = null;
         for( Piece p : whitePieces ){
@@ -173,13 +139,7 @@ public class Board{
         return newPiece;
     }
 
-    /**
-     * Find black piece at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return piece available at (X, Y)
-     */
+
     public Piece takenByBlack(int y, char x){
         Piece newPiece = null;
         for( Piece p : blackPieces ){
@@ -192,13 +152,7 @@ public class Board{
         return newPiece;
     }
 
-    /**
-     * Find any piece at (X, Y)
-     * @author Omiid
-     * @param y The Y-Axis
-     * @param x The X-Axis
-     * @return piece available at (X, Y)
-     */
+
     public Piece takenBy(int y, char x){
         Piece newPiece = null;
         newPiece = takenByWhite(y, x);
@@ -207,26 +161,8 @@ public class Board{
         return newPiece;
     }
 
-    /**
-     * Print Logic Help
-     */
-    public void printHelp(){
-        System.out.println("***** Board Help *****");
-        System.out.println("WK: White King  \t|\tBK: Black King");
-        System.out.println("WQ: White Queen \t|\tBQ: Black Queen");
-        System.out.println("WB: White Bishop\t|\tBB: Black Bishop");
-        System.out.println("WN: White Knight\t|\tBN: Black Knight");
-        System.out.println("WR: White Rook  \t|\tBR: Black Rook");
-        System.out.println("WP: White Pawn  \t|\tBP: Black Pawn");
-        System.out.println("Acceptable Command: 'D2 D4'(Move From 2D to 4D)");
-        System.out.println("Press any key to start the game...");
-    }
 
-    /**
-     * Prints full logic board
-     * @author Omiid
-     * @param player Current Player that is playing (W/ B)
-     */
+
     public void printBoard(String player){
         if( player.equals("W") ){
 
@@ -242,7 +178,7 @@ public class Board{
                     }else{
                         if( i == 'A' ){
                             System.out.print(j + "   ");
-                        }else{// Maind Clause
+                        }else{// Main Clause
                             char mapedI = (char)(i - 1);
                             if( isTaken(j, mapedI) ){
 
@@ -268,7 +204,7 @@ public class Board{
                     }else{
                         if( i == 'I' ){
                             System.out.print(j + "   ");
-                        }else{// Maind Clause
+                        }else{// Main Clause
                             char mapedI = (char)(i);
                             if( isTaken(j, mapedI) ){
 
@@ -284,14 +220,6 @@ public class Board{
         }
     }
 
-    /**
-     * Move Piece in the board
-     * @author Omiid
-     * @param from String of current place
-     * @param to String of going place
-     * @param color String of current player
-     * @return true if move is valid
-     */
     public boolean move(String from, String to, String color){// Name Format: 1D
         char[] fromArray  = from.toCharArray();
         char[] toArray    = to.toCharArray();
@@ -362,13 +290,7 @@ public class Board{
         return false;
     }
 
-    /**
-     * Check if playing player's king is checked
-     * @author Omiid
-     * @param base ArrayList of playing player
-     * @param enemy ArrayList of waiting player
-     * @return true if is checked
-     */
+
     public boolean kingCheck(ArrayList<Piece> base, ArrayList<Piece> enemy){
         // find king
         int kingY   = 0;
@@ -387,13 +309,7 @@ public class Board{
         return false;
     }
 
-    /**
-     * Check if playing player's king is mate
-     * @author Omiid
-     * @param base ArrayList of playing player
-     * @param enemy ArrayList of waiting player
-     * @return true if is mated
-     */
+
     private boolean kingMate(ArrayList<Piece> base, ArrayList<Piece> enemy){
         int kingY   = 0;
         char kingX  = 'A';
@@ -428,11 +344,7 @@ public class Board{
         }
     }
 
-    /**
-     * Check which player is checkmated
-     * @author Omiid
-     * @return W for white, B for Black
-     */
+
     public String checkMate(){
         if( kingMate(this.blackPieces, this.whitePieces) ){
 
@@ -445,91 +357,12 @@ public class Board{
         }
     }
 
-    /**
-     * Check if piece can go to (X, Y)
-     * @author Omiid
-     * @param p Piece to move
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @param color The Playing player(W/ B)
-     * @return true if can go
-     */
+
     public boolean canGo(Piece p, char x, int y, String color){
         char[] fromArray = {(char)(p.getY() + '0'), p.getX()};
         char[] toArray = {(char)(y + '0'), x};
         return canGo(fromArray, toArray, color);
-//        ArrayList<Piece> selector = null;
-//        ArrayList<Piece> enemy    = null;
-//        Piece found     = p;
-//        boolean toBusy  = false;
-//        Piece attack    = null;
-//        boolean booleanColor = false;
-//        if( color.equals("W") ){
-//
-//            selector  = this.whitePieces;
-//            enemy     = this.blackPieces;
-//            toBusy    = isTakenByWhite(y, x);
-//            attack    = takenByBlack(y, x);
-//            booleanColor = true;
-//        }else{
-//            selector  = this.blackPieces;
-//            enemy     = this.whitePieces;
-//            toBusy    = isTakenByBlack(y, x);
-//            attack    = takenByWhite(y, x);
-//        }
-//        if( x >= 'A' && x <= 'H' && y >= 1 && y <= 8 ){
-//
-//            if( found.getColor() == booleanColor && !toBusy ){// Found and to is not busy
-//
-//                if( kingCheck(selector, enemy) && !(found instanceof King) ){
-//
-//                    return false;
-//                }else{
-//                    if( found.canMove(x, y) ){ // Check if move is valid
-//                        if( found.checkWay(this.allPieces, x, y) ){
-//                            if( (found instanceof Pawn) && found.crossMove(x, y) ){
-//
-//                                if( attack == null ){
-//
-//                                    return false;
-//                                }else{
-//                                    if( y == attack.getY() && x == attack.getX() ){
-//
-//                                        if( found.color && y < found.getY() ){
-//
-//                                            return true;
-//                                        }else if( !found.color && found.getY() < y ){
-//
-//                                            return true;
-//                                        }else{
-//                                            return false;
-//                                        }
-//                                    }else{
-//                                        return false;
-//                                    }
-//                                }
-//                            }else if( (found instanceof Pawn) && attack != null && found.getX() - attack.getX() == 0 ){
-//
-//                                return false;
-//                            }else if( (found instanceof King) && virtualCheck(enemy, x, y)){
-//
-//                                return false;
-//                            }else{
-//                                return true;
-//                            }
-//                        }else{
-//                            return false;
-//                        }
-//                    }else{
-//                        return false;
-//                    }
-//                }
-//            }else{
-//                return false;
-//            }
-//        }else{
-//            return false;
-//        }
+
     }
     public boolean canGo(char[] fromArray, char []toArray, String color){
         ArrayList<Piece> selector = null;
@@ -626,15 +459,6 @@ public class Board{
             return false;
         }
     }
-    /**
-     * Check if piece can attack at (X, Y)
-     * @author Omiid
-     * @param p Piece for attack
-     * @param x The X-Axis
-     * @param y The Y-Axis
-     * @param color The Playing player(W/ B)
-     * @return true if can go
-     */
     public boolean canAttack(Piece p, char x, int y, String color){
         ArrayList<Piece> selector = null;
         ArrayList<Piece> enemy    = null;
@@ -711,5 +535,6 @@ public class Board{
             return false;
         }
     }
-}
 
+
+}
