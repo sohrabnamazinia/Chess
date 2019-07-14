@@ -1,5 +1,3 @@
-
-
 import game.Piece;
 
 import javax.imageio.ImageIO;
@@ -7,19 +5,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class NewJButton extends JButton
+class newJButton extends JButton
 {
     private Piece piece;
     private char X;
     private int Y;
 
-    public NewJButton()
+    public newJButton()
     {
         this.piece = null;
         this.setIcon(null);
     }
 
-    public NewJButton(char X, int Y)
+    public newJButton(char X, int Y)
     {
         this.piece = null;
         this.X = X;
@@ -27,22 +25,21 @@ public class NewJButton extends JButton
         this.setIcon(null);
     }
 
-    public NewJButton(Piece p, char X, int Y)
+    public newJButton(Piece p, char X, int Y)
     {
         this.piece = p;
         this.X = X;
         this.Y = Y;
         Image img = null;
 
-//        try
-//        {
-//           //it will soon be completed by next push
-//        }
-//        catch (IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-
+        try
+        {
+            img = ImageIO.read(Chess.class.getResource("resources/images/" + p.getName().toLowerCase() + ".png"));
+        }
+        catch (IOException e1)
+        {
+            e1.printStackTrace();
+        }
         this.setIcon(new ImageIcon(img));
     }
 
