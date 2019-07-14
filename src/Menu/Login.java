@@ -55,7 +55,7 @@ public class Login extends Application
             {
                 //if (this user exists)
                 try
-                {
+                { // waiting to attach menu to main
 //                    Splash splash = new Splash();
 //                    splash.run();
                 }
