@@ -2,7 +2,6 @@ package game;
 
 import java.util.*;
 
-
 public class Board{
     private ArrayList<Piece> whitePieces;
     private ArrayList<Piece> blackPieces;
