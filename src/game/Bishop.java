@@ -16,7 +16,8 @@ public class Bishop extends Piece
         return false;
     }
 
-    public static boolean canMove(Piece p, char x, int y){
+    public static boolean canMove(Piece p, char x, int y)
+    {
         if(  Math.abs(p.x - x) != 0 && Math.abs(p.y - y) != 0 && Math.abs((float)(p.x - x) / (p.y - y)) == 1 )
         {
             return true;
