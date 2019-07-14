@@ -278,7 +278,7 @@ class Chess implements MouseListener {
                 btn.setIcon(icon);
                 btn.setPreferredSize(new Dimension(70, 70));
                 btn.setFocusable(false);
-                btn.setBackground(new Color(46, 83,106));
+                btn.setBackground(new Color(106, 55, 7));
                 topLeft.add(btn);
                 whiteLost.add(btn);
             }
@@ -551,7 +551,7 @@ class Chess implements MouseListener {
             }
             else
             {
-                btn.setBackground(new Color(46, 83,106));
+                btn.setBackground(new Color(106, 55, 7));
             }
         }
         for(NewJButton btn : this.whiteLost)

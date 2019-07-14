@@ -7,4 +7,10 @@ public class Main
         Splash splash = new Splash();
         splash.run();
     }
+
+    public static void rerun() throws IOException
+    {
+        Splash splash = new Splash();
+        splash.run();
+    }
 }

@@ -17,6 +17,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sun.applet.Main;
+import java.io.IOException;
 
 public class Login extends Application
 {
