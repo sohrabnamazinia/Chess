@@ -152,7 +152,7 @@ class Chess implements MouseListener {
                     }
                     else
                     {
-                        btn.setBackground(new Color(46, 83,106));
+                        btn.setBackground(new Color(106, 55, 7));
                     }
                     boardPanel.add(btn);
                 }
@@ -234,7 +234,7 @@ class Chess implements MouseListener {
                         }
                         else if( j == 'E' )
                         {
-                            King blackKing = new King(j, i, false, "BQ");
+                            King blackKing = new King(j, i, false, "BK");
                             blackPieces.add(blackKing);
                             btn = new NewJButton(blackKing, j, i);
                         }
