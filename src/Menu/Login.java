@@ -1,6 +1,6 @@
 package Menu;
 
-import com.sun.tools.javac.Main;
+import com.sun.javafx.applet.Splash;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -16,6 +16,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sun.applet.Main;
 
 public class Login extends Application
 {
@@ -52,9 +53,12 @@ public class Login extends Application
             if (!(txtFld1.getText().equals("")) && !(txtFld2.getText().equals("")))
             {
                 //if (this user exists)
-                try {
-                    Main.main(null);
-                } catch (Exception e) {
+                try
+                {
+//                    Splash splash = new Splash();
+//                    splash.run();
+                }
+                catch (Exception e) {
                     e.printStackTrace();
                 }
             }

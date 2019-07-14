@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
-class Splash
+public class Splash
 {
     public void run() throws IOException
     {
