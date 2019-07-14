@@ -126,7 +126,7 @@ class Chess implements MouseListener {
                             blackPieces.add(blackQueen);
                             btn = new NewJButton(blackQueen, j, i);
                         }else if( j == 'E' ){
-                            King blackKing = new King(j, i, false, "BQ");
+                            King blackKing = new King(j, i, false, "BK");
                             blackPieces.add(blackKing);
                             btn = new NewJButton(blackKing, j, i);
                         }
