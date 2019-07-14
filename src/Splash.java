@@ -35,7 +35,8 @@ class Splash
 
             server.close();
 
-            //the other collabrator will son add the appropriate chess class
+            Chess chess = new Chess("W", socket);
+            chess.run();
 
         }
 
@@ -53,6 +54,8 @@ class Splash
                     flag = false;
                 }
             }
+            Chess chess = new Chess("B", socket);
+            chess.run();
             System.out.println("Connected to server");
 
 

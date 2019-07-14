@@ -1,5 +1,6 @@
 package Menu;
 
+import com.sun.tools.javac.Main;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -50,6 +51,12 @@ public class Login extends Application
         btnOk.setOnAction((ActionEvent event) -> {
             if (!(txtFld1.getText().equals("")) && !(txtFld2.getText().equals("")))
             {
+                //if (this user exists)
+                try {
+                    Main.main(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             else
