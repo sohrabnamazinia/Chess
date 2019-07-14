@@ -54,6 +54,7 @@ class Splash
                     flag = false;
                 }
             }
+
             Chess chess = new Chess("B", socket);
             chess.run();
             System.out.println("Connected to server");
