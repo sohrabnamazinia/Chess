@@ -1,6 +1,5 @@
 package Menu;
 
-import com.sun.javafx.applet.Splash;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -16,8 +15,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sun.applet.Main;
-import java.io.IOException;
 
 public class Login extends Application
 {
@@ -53,15 +50,7 @@ public class Login extends Application
         btnOk.setOnAction((ActionEvent event) -> {
             if (!(txtFld1.getText().equals("")) && !(txtFld2.getText().equals("")))
             {
-                //if (this user exists)
-                try
-                { // waiting to attach menu to main
-//                    Splash splash = new Splash();
-//                    splash.run();
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // problem
             }
 
             else
