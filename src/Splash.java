@@ -10,7 +10,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class Splash
 {
-    public void run() throws IOException
+    public void run() throws Exception
     {
         Object[] options = {"Create", "Join"};
         int result = JOptionPane.showOptionDialog(null, "  Create/Join  a  server  :", "Start Game", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
@@ -38,7 +38,7 @@ public class Splash
 
             server.close();
 
-            Chess chess = new Chess("W", socket);
+            Chess chess = new Chess("W", socket, true);
             chess.run();
 
         }
@@ -58,7 +58,7 @@ public class Splash
                 }
             }
 
-            Chess chess = new Chess("B", socket);
+            Chess chess = new Chess("B", socket, false);
             chess.run();
             System.out.println("Connected to server");
 

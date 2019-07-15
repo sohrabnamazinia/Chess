@@ -1,3 +1,5 @@
+import chatRoom.Client;
+import chatRoom.Server;
 import game.*;
 
 import javax.imageio.ImageIO;
@@ -29,9 +31,12 @@ class Chess implements MouseListener {
     private ArrayList<NewJButton> whiteLost = new ArrayList<>();
     private ArrayList<NewJButton> blackLost = new ArrayList<>();
     private JLabel caption;
+    public boolean isServer;
 
-    public Chess(String me, Socket socket) throws IOException
+    public Chess(String me, Socket socket, boolean isServer) throws Exception
     {
+        this.isServer = isServer;
+
         if( me.equals("W") )
         {
             this.me = true;
@@ -43,6 +48,16 @@ class Chess implements MouseListener {
         this.socket = socket;
         this.input  = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
         this.output = new DataOutputStream(this.socket.getOutputStream());
+
+        if(isServer)
+        {
+            Server.main(null);
+        }
+        else
+        {
+            Client.main(null);
+        }
+
     }
 
     public void run() throws IOException

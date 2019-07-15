@@ -56,7 +56,7 @@ public class Login extends Application
                     Splash splash = new Splash();
                     splash.run();
                 }
-                catch (IOException e)
+                catch (Exception e)
                 {
                     e.getStackTrace();
                 }
