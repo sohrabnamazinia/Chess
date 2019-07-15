@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -22,6 +24,7 @@ public class Splash
             AppFrame frame = new AppFrame();
             frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             JLabel label = new JLabel("Waiting for opponent...");
+            System.out.println(Inet4Address.getLocalHost().getHostAddress());
             label.setBorder(new EmptyBorder(40,40,40,40));
             frame.add(label);
             frame.pack();
