@@ -39,6 +39,15 @@ public class PlayerDB {
         return resultSet.getString("username");
     }
 
+    public String getPlayer(String username, String pass) throws Exception{
+        preparedStatement = connection.prepareStatement("select * from player where username = ? and pass = ?");
+        preparedStatement.setString(1,username);
+        preparedStatement.setString(2,pass);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        return resultSet.getString("username");
+    }
+
     public void changePass(Player player, String newPass) throws Exception{
         preparedStatement = connection.prepareStatement("update player set pass = ? where username = ?");
         preparedStatement.setString(1, newPass);

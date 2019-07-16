@@ -36,7 +36,6 @@ public class Splash
             Socket socket = server.accept();
             System.out.println("Client Connected");
             frame.dispose();
-
             server.close();
 
             Chess chess = new Chess("W", socket, true);

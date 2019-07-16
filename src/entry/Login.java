@@ -1,5 +1,6 @@
 package entry;
 
+import database.PlayerDB;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -34,6 +35,7 @@ public class Login extends Application
         Pane root = new Pane();
 
         // Setting text fields, label and buttons.
+        Text text = new Text();
         TextField txtFld1 = new TextField();
         TextField txtFld2 = new TextField();
         Label lbl1 = new Label("Enter your username:");
@@ -55,20 +57,19 @@ public class Login extends Application
                 String pass = txtFld2.getText();
                 try
                 {
-                   // String username = new PlayerDB().getPlayer(userName);
-
+                 //   String username = new PlayerDB().getPlayer(userName);
+                    new PlayerDB().getPlayer(userName, pass);
                     stage.close();
                     Splash splash = new Splash();
                     splash.run();
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
-                    e.printStackTrace();
-//                    Text text = new Text();
-//                    text.setFont(Font.font("Serif", FontWeight.BOLD, 20));
-//                    text.setFill(Color.RED);
-//                    text.setText("Username/Password is not Correct!");
-//                    text.setX(50);
-//                    text.setY(250);
+                    text.setFont(Font.font("Serif", FontWeight.BOLD, 20));
+                    text.setFill(Color.RED);
+                    text.setText("Username/Password is not Correct!");
+                    text.setX(50);
+                    text.setY(250);
                 }
 
 //                //else :
@@ -84,14 +85,11 @@ public class Login extends Application
 
             else
             {
-                Text text = new Text();
                 text.setFont(Font.font("Serif", FontWeight.BOLD, 20));
                 text.setFill(Color.RED);
                 text.setText("Username/Password is not entered.");
                 text.setX(50);
                 text.setY(250);
-
-                root.getChildren().addAll(text);
             }
         });
 
@@ -124,7 +122,7 @@ public class Login extends Application
         imageView.setFitWidth(820);
 
         // Adding image, text field and buttons.
-        root.getChildren().addAll(imageView, txtFld1, lbl1, txtFld2, lbl2, btnOk, btnBack, btnQuit);
+        root.getChildren().addAll(imageView, text, txtFld1, lbl1, txtFld2, lbl2, btnOk, btnBack, btnQuit);
 
         // Creating a scene for stage.
         Scene scene = new Scene(root, 800, 600);
