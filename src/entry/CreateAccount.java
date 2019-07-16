@@ -73,11 +73,12 @@ public class CreateAccount extends Application
                 String userName = txtFld1.getText();
                 String pass = txtFld2.getText();
                 Player player = new Player(userName, pass);
-                PlayerDB playerDB  = null;
+                PlayerDB playerDB = null;
                 try
                 {
                     playerDB = new PlayerDB();
-                } catch (Exception e) {e.getStackTrace();}
+                }
+                catch (Exception e) {e.printStackTrace();}
 
                 try
                 {

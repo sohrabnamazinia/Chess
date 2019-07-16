@@ -31,12 +31,14 @@ public class Menu extends Application
         Button btnCA = new Button("_Create account");
         Button btnL = new Button("_Login");
         Button btnQuit = new Button("_Quit");
+        Button btnSB = new Button("_Scoreboard");
 
         btnL.setPrefWidth(125);
+        btnSB.setPrefWidth(125);
 
         // Creating Tooltips for buttons and assigning them to the considered buttons.
         Tooltip btnCATip = new Tooltip("Create account and join the game.");
-        Tooltip btnLTip = new Tooltip("entry.Login and join the game.");
+        Tooltip btnLTip = new Tooltip("Login and join the game.");
         Tooltip.install(btnCA, btnCATip);
         Tooltip.install(btnL, btnLTip);
 
@@ -49,6 +51,13 @@ public class Menu extends Application
             Login login = new Login();
             login.start(stage);
         });
+
+        btnSB.setOnAction((ActionEvent event) -> {
+            Stage tempStage = new Stage();
+            Scoreboard scoreboard = new Scoreboard();
+            scoreboard.start(tempStage);
+        });
+
         btnQuit.setOnAction((ActionEvent event) -> {Platform.exit();});
 
         // setting buttons positions.
@@ -56,6 +65,8 @@ public class Menu extends Application
         btnCA.setLayoutY(40);
         btnL.setLayoutX(40);
         btnL.setLayoutY(73);
+        btnSB.setLayoutX(630);
+        btnSB.setLayoutY(40);
         btnQuit.setLayoutX(700);
         btnQuit.setLayoutY(540);
 
@@ -66,7 +77,7 @@ public class Menu extends Application
         imageView.setFitWidth(820);
 
         // Adding image and buttons.
-        root.getChildren().addAll(imageView, btnCA, btnL, btnQuit);
+        root.getChildren().addAll(imageView, btnCA, btnL, btnSB, btnQuit);
 
         // Creating a scene for the stage.
         Scene scene = new Scene(root, 800, 600);

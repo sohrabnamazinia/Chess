@@ -12,7 +12,7 @@ public class PlayerDB {
     public PlayerDB() throws Exception
     {
         Class.forName("org.postgresql.Driver");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "pqnuqr34");
     }
 
     public void addPlayer(Player player) throws Exception

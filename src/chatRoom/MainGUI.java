@@ -12,7 +12,6 @@ public class MainGUI
     static JButton     sendMessage;
     static JTextField  messageBox;
     static JTextArea   chatBox;
-    static String  username = "Sohrab Namazi nia";
 
     public static void main(String[] args)
     {

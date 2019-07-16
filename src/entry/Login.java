@@ -1,6 +1,5 @@
 package entry;
 
-import database.Player;
 import database.PlayerDB;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -60,7 +59,6 @@ public class Login extends Application
                 String pass = txtFld2.getText();
                 try
                 {
-                 //   String username = new PlayerDB().getPlayer(userName);
                     new PlayerDB().getPlayer(userName, pass);
                     chatName = txtFld1.getText();
                     stage.close();
@@ -75,16 +73,6 @@ public class Login extends Application
                     text.setX(50);
                     text.setY(250);
                 }
-
-//                //else :
-//                Text text = new Text();
-//                text.setFont(Font.font("Serif", FontWeight.BOLD, 20));
-//                text.setFill(Color.RED);
-//                text.setText("Username/Password is not Correct!");
-//                text.setX(50);
-//                text.setY(250);
-//
-//                root.getChildren().addAll(text);
             }
 
             else
