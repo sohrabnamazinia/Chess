@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- * Created by Kiarash23 in 6/2/2019
- */
 public class PlayerDB {
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -60,5 +57,4 @@ public class PlayerDB {
         preparedStatement.close();
         connection.close();
     }
-
 }

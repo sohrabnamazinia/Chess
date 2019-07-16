@@ -10,7 +10,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class Splash
 {
-    public static String s;
+    public static String ServerIP;
     public void run() throws Exception
     {
         Object[] options = {"Create", "Join"};
@@ -51,8 +51,8 @@ public class Splash
             Socket socket = null;
             while(flag)
             {
-                s = (String)JOptionPane.showInputDialog(null, "Enter Server IP:", "Finding Server", JOptionPane.PLAIN_MESSAGE, null, null, "x.x.x.x");
-                socket = new Socket(s, 5000);
+                ServerIP = (String)JOptionPane.showInputDialog(null, "Enter Server IP:", "Finding Server", JOptionPane.PLAIN_MESSAGE, null, null, "x.x.x.x");
+                socket = new Socket(ServerIP, 5000);
                 if( socket.isConnected() )
                 {
                     flag = false;

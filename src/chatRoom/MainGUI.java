@@ -79,7 +79,7 @@ public class MainGUI
                 }
                 catch (Exception e)
                 {
-
+                    e.getStackTrace();
                 }
                 messageBox.setText("");
                 messageBox.requestFocusInWindow();

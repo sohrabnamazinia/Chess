@@ -92,7 +92,6 @@ public class CreateAccount extends Application
                     text.setY(200);
                     root.getChildren().addAll(text);
                 }
-
             }
             else
             {

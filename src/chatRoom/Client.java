@@ -17,7 +17,7 @@ public class Client
 
     public static void main(String[] args) throws IOException
     {
-        socket = new Socket(Splash.s, 5555);
+        socket = new Socket(Splash.ServerIP, 5555);
         out = new DataOutputStream(socket.getOutputStream());
         in = new DataInputStream(socket.getInputStream());
         MainGUI.main(null);
@@ -48,7 +48,6 @@ public class Client
             {
                 try {
                     String message = in.readUTF();
-                    //System.out.println(message);
                     MainGUI.chatBox.append(message + "\n");
                     System.out.println(message);
                 } catch (IOException e) {

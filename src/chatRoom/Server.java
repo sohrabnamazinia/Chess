@@ -29,7 +29,6 @@ public class Server
                 String message = null;
                 try {
                     message = in.readUTF();
-                   // System.out.println(message);
                     MainGUI.chatBox.append(message + "\n");
                 } catch (IOException e) {
                     e.printStackTrace();
