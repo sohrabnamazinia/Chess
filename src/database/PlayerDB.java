@@ -9,12 +9,14 @@ public class PlayerDB {
     private Connection connection;
     private PreparedStatement preparedStatement;
 
-    public PlayerDB() throws Exception {
+    public PlayerDB() throws Exception
+    {
         Class.forName("org.postgresql.Driver");
         connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
     }
 
-    public void addPlayer(Player player) throws Exception{
+    public void addPlayer(Player player) throws Exception
+    {
         preparedStatement = connection.prepareStatement("insert into player values (?,?,?)");
         preparedStatement.setString(1, player.getName());
         preparedStatement.setString(2, player.getPass());
