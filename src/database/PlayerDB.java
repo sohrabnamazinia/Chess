@@ -1,7 +1,6 @@
 package database;
 
 import entry.Scoreboard;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,20 +13,25 @@ public class PlayerDB {
     public PlayerDB() throws Exception
     {
         Class.forName("org.postgresql.Driver");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "pqnuqr34");
     }
 
     public void getRanking() throws Exception{
         preparedStatement = connection.prepareStatement("select username, score from proj.player order by score DESC;");
         ResultSet resultSet = preparedStatement.executeQuery();
-        String sb = "";
+
+        String usernames = "";
+        String scores = "";
+
         int i = 1;
         while (resultSet.next())
         {
-            sb += i + " ) " + resultSet.getString("username") + " : " + resultSet.getString("score") + "\n";
+            usernames += i + " ) " + resultSet.getString("username") + "\n";
+            scores += resultSet.getString("score") + "\n";
             i++;
         }
-        Scoreboard.label.setText(sb);
+        Scoreboard.label1.setText(usernames);
+        Scoreboard.label2.setText(scores);
     }
 
     public void getPlayer() throws Exception{
@@ -47,8 +51,6 @@ public class PlayerDB {
         preparedStatement.setInt(3, player.getScore());
         preparedStatement.executeUpdate();
     }
-
-
 
     public String getPlayer(String username) throws Exception{
         preparedStatement = connection.prepareStatement("select * from player where username = ?");
