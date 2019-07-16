@@ -1,5 +1,7 @@
 package database;
 
+import entry.Scoreboard;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +14,29 @@ public class PlayerDB {
     public PlayerDB() throws Exception
     {
         Class.forName("org.postgresql.Driver");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "pqnuqr34");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
+    }
+
+    public void getRanking() throws Exception{
+        preparedStatement = connection.prepareStatement("select username, score from proj.player order by score DESC;");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String sb = "";
+        int i = 1;
+        while (resultSet.next())
+        {
+            sb += i + " ) " + resultSet.getString("username") + " : " + resultSet.getString("score") + "\n";
+            i++;
+        }
+        Scoreboard.label.setText(sb);
+    }
+
+    public void getPlayer() throws Exception{
+        preparedStatement = connection.prepareStatement("select * from player");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next())
+        {
+            System.out.println(resultSet.getString("username"));
+        }
     }
 
     public void addPlayer(Player player) throws Exception
@@ -24,14 +48,7 @@ public class PlayerDB {
         preparedStatement.executeUpdate();
     }
 
-    public void getPlayer() throws Exception{
-        preparedStatement = connection.prepareStatement("select * from player");
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next())
-        {
-            System.out.println(resultSet.getString("username"));
-        }
-    }
+
 
     public String getPlayer(String username) throws Exception{
         preparedStatement = connection.prepareStatement("select * from player where username = ?");

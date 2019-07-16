@@ -55,7 +55,11 @@ public class Menu extends Application
         btnSB.setOnAction((ActionEvent event) -> {
             Stage tempStage = new Stage();
             Scoreboard scoreboard = new Scoreboard();
-            scoreboard.start(tempStage);
+            try {
+                scoreboard.start(tempStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
 
         btnQuit.setOnAction((ActionEvent event) -> {Platform.exit();});
