@@ -1,5 +1,6 @@
 package entry;
 
+import database.Player;
 import database.PlayerDB;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,6 +23,8 @@ public class Login extends Application
 {
     private ImageView imageView;
     private Image LImg;
+    public static String chatName;
+
 
     @Override
     public void start(Stage stage)
@@ -59,6 +62,7 @@ public class Login extends Application
                 {
                  //   String username = new PlayerDB().getPlayer(userName);
                     new PlayerDB().getPlayer(userName, pass);
+                    chatName = txtFld1.getText();
                     stage.close();
                     Splash splash = new Splash();
                     splash.run();

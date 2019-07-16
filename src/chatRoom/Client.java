@@ -1,5 +1,6 @@
 package chatRoom;
 
+import entry.Login;
 import main.Splash;
 
 import java.io.DataInputStream;
@@ -13,7 +14,7 @@ public class Client
     static Socket socket;
     static DataInputStream in;
     static DataOutputStream out;
-    static String userName = "Sohrab";
+    static String userName = Login.chatName;
 
     public static void main(String[] args) throws IOException
     {

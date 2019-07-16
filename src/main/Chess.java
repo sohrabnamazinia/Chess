@@ -2,6 +2,7 @@ package main;
 
 import chatRoom.Client;
 import chatRoom.Server;
+import database.Player;
 import game.*;
 
 import javax.imageio.ImageIO;
@@ -34,6 +35,7 @@ class Chess implements MouseListener {
     private ArrayList<NewJButton> blackLost = new ArrayList<>();
     private JLabel caption;
     public boolean isServer;
+    Player player;
 
     public Chess(String me, Socket socket, boolean isServer) throws Exception
     {
