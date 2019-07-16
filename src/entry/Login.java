@@ -23,6 +23,9 @@ public class Login extends Application
     private ImageView imageView;
     private Image LImg;
     public static String chatName;
+    public static TextField txtFld1;
+    public static TextField txtFld2;
+
 
 
     @Override
@@ -38,8 +41,8 @@ public class Login extends Application
 
         // Setting text fields, label and buttons.
         Text text = new Text();
-        TextField txtFld1 = new TextField();
-        TextField txtFld2 = new TextField();
+         txtFld1 = new TextField();
+         txtFld2 = new TextField();
         Label lbl1 = new Label("Enter your username:");
         Label lbl2 = new Label("Enter your password:");
         Button btnOk = new Button("Ok");

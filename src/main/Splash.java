@@ -40,8 +40,10 @@ public class Splash
             frame.dispose();
             server.close();
 
-            Chess chess = new Chess("W", socket, true);
-            chess.run();
+            Chess chess1 = new Chess("W", socket, true);
+            chess1.username = Login.txtFld1.getText();
+            Chess.players.add(chess1);
+            chess1.run();
 
         }
 
@@ -60,8 +62,10 @@ public class Splash
                 }
             }
 
-            Chess chess = new Chess("B", socket, false);
-            chess.run();
+            Chess chess2 = new Chess("B", socket, false);
+            chess2.username = Login.txtFld1.getText();
+            Chess.players.add(chess2);
+            chess2.run();
             System.out.println("Connected to server");
 
 

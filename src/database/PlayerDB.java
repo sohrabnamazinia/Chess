@@ -13,7 +13,7 @@ public class PlayerDB {
     public PlayerDB() throws Exception
     {
         Class.forName("org.postgresql.Driver");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "pqnuqr34");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
     }
 
     public void getRanking() throws Exception{
@@ -58,6 +58,30 @@ public class PlayerDB {
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
         return resultSet.getString("username");
+    }
+
+    public int getScore(String username) throws Exception{
+        preparedStatement = connection.prepareStatement("select * from player where username = ?");
+        preparedStatement.setString(1,username);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        return resultSet.getInt("score");
+    }
+
+    public void updateScore(String username, boolean isWinner) throws Exception
+    {
+        int points = getScore(username);
+        if (isWinner)
+        {
+           points += 10;
+        }
+        else
+        {
+            points -= 3;
+        }
+        preparedStatement = connection.prepareStatement("UPDATE proj.player SET score = ?  WHERE username = ?");
+        preparedStatement.setInt(1, points);
+        preparedStatement.setString(2, username);
     }
 
     public String getPlayer(String username, String pass) throws Exception{

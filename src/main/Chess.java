@@ -3,6 +3,7 @@ package main;
 import chatRoom.Client;
 import chatRoom.Server;
 import database.Player;
+import database.PlayerDB;
 import game.*;
 
 import javax.imageio.ImageIO;
@@ -20,7 +21,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
-class Chess implements MouseListener {
+class Chess implements MouseListener
+{
+    public String username;
     private Socket socket = null;
     private DataInputStream input   = null;
     private DataOutputStream output = null;
@@ -35,7 +38,7 @@ class Chess implements MouseListener {
     private ArrayList<NewJButton> blackLost = new ArrayList<>();
     private JLabel caption;
     public boolean isServer;
-    Player player;
+    public static ArrayList<Chess> players = new ArrayList<>();
 
     public Chess(String me, Socket socket, boolean isServer) throws Exception
     {
@@ -413,6 +416,8 @@ class Chess implements MouseListener {
                 catch (IOException e1)
                 {
                     e1.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             catch(IOException i)
@@ -539,6 +544,8 @@ class Chess implements MouseListener {
             catch (IOException e1)
             {
                 e1.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
     }
@@ -616,7 +623,7 @@ class Chess implements MouseListener {
         }
     }
 
-    public void checkMate() throws IOException
+    public void checkMate() throws Exception
     {
         if( this.board.checkMate() != null )
         {
@@ -635,11 +642,36 @@ class Chess implements MouseListener {
 
             if (this.board.checkMate().equals("W"))
             {
+                for (Chess player : Chess.players)
+                {
+                    if (!(player.isServer))
+                    {
+                        new PlayerDB().updateScore(player.username, true);
+                    }
+                    else
+                    {
+                        new PlayerDB().updateScore(player.username, false);
+                    }
+                }
                 prompt = prompt.concat("<html><body><center>Black Player Won!M</center>");
+
+
             }
             else
             {
+                for (Chess player : Chess.players)
+                {
+                    if (player.isServer)
+                    {
+                        new PlayerDB().updateScore(player.username, true);
+                    }
+                    else
+                    {
+                        new PlayerDB().updateScore(player.username, false);
+                    }
+                }
                 prompt = prompt.concat("<html><body><center>White Player Won!</center>");
+
             }
 
             JOptionPane optionPane = new JOptionPane(new JLabel(prompt,JLabel.CENTER));
