@@ -50,6 +50,10 @@ public class Login extends Application
         btnOk.setOnAction((ActionEvent event) -> {
             if (!(txtFld1.getText().equals("")) && !(txtFld2.getText().equals("")))
             {
+                String userName = txtFld1.getText();
+                String pass = txtFld2.getText();
+
+
                 try
                 {
                     stage.close();
