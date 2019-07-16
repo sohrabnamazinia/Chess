@@ -1,15 +1,16 @@
+package main;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.io.IOException;
 import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class Splash
 {
+    public static String s;
     public void run() throws Exception
     {
         Object[] options = {"Create", "Join"};
@@ -50,7 +51,7 @@ public class Splash
             Socket socket = null;
             while(flag)
             {
-                String s = (String)JOptionPane.showInputDialog(null, "Enter Server IP:", "Finding Server", JOptionPane.PLAIN_MESSAGE, null, null, "x.x.x.x");
+                s = (String)JOptionPane.showInputDialog(null, "Enter Server IP:", "Finding Server", JOptionPane.PLAIN_MESSAGE, null, null, "x.x.x.x");
                 socket = new Socket(s, 5000);
                 if( socket.isConnected() )
                 {

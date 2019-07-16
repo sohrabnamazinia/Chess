@@ -175,7 +175,7 @@ public class Board{
                     }else{
                         if( i == 'A' ){
                             System.out.print(j + "   ");
-                        }else{// Main Clause
+                        }else{// main.Main Clause
                             char mapedI = (char)(i - 1);
                             if( isTaken(j, mapedI) ){
 
@@ -201,7 +201,7 @@ public class Board{
                     }else{
                         if( i == 'I' ){
                             System.out.print(j + "   ");
-                        }else{// Main Clause
+                        }else{// main.Main Clause
                             char mapedI = (char)(i);
                             if( isTaken(j, mapedI) ){
 

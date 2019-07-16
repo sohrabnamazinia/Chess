@@ -1,3 +1,6 @@
+package main;
+
+import entry.Menu;
 
 public class Main
 {

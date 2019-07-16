@@ -28,7 +28,8 @@ public class PlayerDB {
     public void getPlayer() throws Exception{
         preparedStatement = connection.prepareStatement("select * from player");
         ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()){
+        while (resultSet.next())
+        {
             System.out.println(resultSet.getString("username"));
         }
     }

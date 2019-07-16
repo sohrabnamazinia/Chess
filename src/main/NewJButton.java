@@ -1,3 +1,5 @@
+package main;
+
 import game.Piece;
 
 import javax.imageio.ImageIO;
@@ -34,7 +36,7 @@ class NewJButton extends JButton
 
         try
         {
-            img = ImageIO.read(Chess.class.getResource("resources/images/" + p.getName().toLowerCase() + ".png"));
+            img = ImageIO.read(Chess.class.getResource("/resources/images/" + p.getName().toLowerCase() + ".png"));
         }
         catch (IOException e1)
         {

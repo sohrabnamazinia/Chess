@@ -13,6 +13,12 @@ public class Player
         this.score = score;
     }
 
+    public Player(String name, String pass)
+    {
+        this.name = name;
+        this.pass = pass;
+    }
+
     public String getName() {
         return name;
     }

@@ -5,6 +5,13 @@ package database;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
+            String userName = "Ali";
+            String pass = "1234";
+            Player player = new Player(userName, pass);
+            PlayerDB playerDB  = new PlayerDB();
+            playerDB.addPlayer(player);
+
+
 //        Player player = new database.Player("farbod","farbod12345", 22);
 //        PlayerDB playerDB = new database.PlayerDB();
 //        playerDB.addPlayer(player);
