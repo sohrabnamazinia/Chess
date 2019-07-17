@@ -64,7 +64,6 @@ class Chess implements MouseListener
         {
             Client.main(null);
         }
-
     }
 
     public void run() throws IOException
@@ -158,7 +157,6 @@ class Chess implements MouseListener
                         Pawn newPawn = new Pawn(j, i, false, "BP");
                         blackPieces.add(newPawn);
                         btn = new NewJButton(newPawn, j, i);
-//                        btn = new newJButton(j, i);
                     }
                     else
                     {
@@ -653,7 +651,7 @@ class Chess implements MouseListener
                         new PlayerDB().updateScore(player.username, false);
                     }
                 }
-                prompt = prompt.concat("<html><body><center>Black Player Won!M</center>");
+                prompt = prompt.concat("<html><body><center>Black Player Won!</center>");
 
 
             }

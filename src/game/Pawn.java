@@ -21,8 +21,7 @@ public class Pawn extends Piece
     {
         return this.firstMove;
     }
-
-
+    
     public boolean canMove(char x, int y)
     {
         if( this.x - x == 0 )
@@ -59,7 +58,6 @@ public class Pawn extends Piece
         }
         return false;
     }
-
 
     public boolean checkWay(ArrayList<Piece> pieces, char x, int y)
     {
