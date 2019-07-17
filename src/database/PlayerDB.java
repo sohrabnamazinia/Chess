@@ -82,6 +82,7 @@ public class PlayerDB {
         preparedStatement = connection.prepareStatement("UPDATE proj.player SET score = ?  WHERE username = ?");
         preparedStatement.setInt(1, points);
         preparedStatement.setString(2, username);
+        preparedStatement.execute();
     }
 
     public String getPlayer(String username, String pass) throws Exception{
