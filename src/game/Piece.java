@@ -2,7 +2,8 @@ package game;
 
 import java.util.*;
 
-public abstract class Piece{
+public abstract class Piece
+{
     public int y;
     public char x;
     public boolean color;

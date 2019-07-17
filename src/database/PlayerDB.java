@@ -13,10 +13,11 @@ public class PlayerDB {
     public PlayerDB() throws Exception
     {
         Class.forName("org.postgresql.Driver");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "pqnuqr34");
+        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=proj", "postgres", "god.sn7.cr7");
     }
 
-    public void getRanking() throws Exception{
+    public void getRanking() throws Exception
+    {
         preparedStatement = connection.prepareStatement("select username, score from proj.player order by score DESC;");
         ResultSet resultSet = preparedStatement.executeQuery();
 

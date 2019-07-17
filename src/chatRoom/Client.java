@@ -23,7 +23,6 @@ public class Client
 
         new Thread(() ->
         {
-
             while (true)
             {
                 if (MainGUI.sendMessage.isSelected())
@@ -38,7 +37,6 @@ public class Client
                 }
 
             }
-
         }).start();
 
         new Thread(() ->

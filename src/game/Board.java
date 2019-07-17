@@ -8,7 +8,8 @@ public class Board
     private ArrayList<Piece> blackPieces;
     private ArrayList<Piece> allPieces;
 
-    public Board(){
+    public Board()
+    {
         this.whitePieces = new ArrayList<Piece>();
         this.blackPieces = new ArrayList<Piece>();
     }

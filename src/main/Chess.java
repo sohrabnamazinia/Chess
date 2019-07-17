@@ -644,11 +644,12 @@ class Chess implements MouseListener
                 {
                     if (!(player.isServer))
                     {
-                        new PlayerDB().updateScore(player.username, true);
+                        new PlayerDB().updateScore(players.get(0).username, true);
                     }
                     else
                     {
-                        new PlayerDB().updateScore(player.username, false);
+                        System.out.println(2);
+                        new PlayerDB().updateScore(players.get(0).username, false);
                     }
                 }
                 prompt = prompt.concat("<html><body><center>Black Player Won!</center>");
