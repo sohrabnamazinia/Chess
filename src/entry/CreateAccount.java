@@ -24,10 +24,7 @@ public class CreateAccount extends Application
     private Image CAImg;
 
     @Override
-    public void start(Stage stage)
-    {
-        initUI(stage);
-    }
+    public void start(Stage stage){initUI(stage);}
 
     private void initUI(Stage stage)
     {
@@ -67,18 +64,16 @@ public class CreateAccount extends Application
         btnQuit.setLayoutY(540);
 
         btnOk.setOnAction((ActionEvent event) -> {
-
             if (!(txtFld1.getText().equals("")) && !(txtFld2.getText().equals("")))
             {
                 String userName = txtFld1.getText();
                 String pass = txtFld2.getText();
                 Player player = new Player(userName, pass);
                 PlayerDB playerDB = null;
-                try
-                {
+
+                try {
                     playerDB = new PlayerDB();
-                }
-                catch (Exception e) {e.printStackTrace();}
+                }catch (Exception e) {e.printStackTrace();}
 
                 try
                 {
@@ -109,6 +104,7 @@ public class CreateAccount extends Application
             Menu menu = new Menu();
             menu.start(stage);
         });
+
         btnQuit.setOnAction((ActionEvent event) -> {Platform.exit();});
 
         // Setting an image.
@@ -130,13 +126,7 @@ public class CreateAccount extends Application
         stage.show();
     }
 
-    private void loadImage()
-    {
-        CAImg = new Image("/resources/images/CreateAccount.jpg");
-    }
+    private void loadImage(){CAImg = new Image("/resources/images/CreateAccount.jpg");}
 
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
+    public static void main(String[] args){launch(args);}
 }

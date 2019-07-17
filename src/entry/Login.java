@@ -26,23 +26,18 @@ public class Login extends Application
     public static TextField txtFld1;
     public static TextField txtFld2;
 
-
-
     @Override
-    public void start(Stage stage)
-    {
-        initUI(stage);
-    }
+    public void start(Stage stage){initUI(stage);}
 
     private void initUI(Stage stage)
     {
         // Creating a pane.
         Pane root = new Pane();
 
-        // Setting text fields, label and buttons.
+        // Setting texts, text fields, label and buttons.
         Text text = new Text();
-         txtFld1 = new TextField();
-         txtFld2 = new TextField();
+        txtFld1 = new TextField();
+        txtFld2 = new TextField();
         Label lbl1 = new Label("Enter your username:");
         Label lbl2 = new Label("Enter your password:");
         Button btnOk = new Button("Ok");
@@ -60,6 +55,7 @@ public class Login extends Application
             {
                 String userName = txtFld1.getText();
                 String pass = txtFld2.getText();
+
                 try
                 {
                     new PlayerDB().getPlayer(userName, pass);
@@ -77,7 +73,6 @@ public class Login extends Application
                     text.setY(250);
                 }
             }
-
             else
             {
                 text.setFont(Font.font("Serif", FontWeight.BOLD, 20));
@@ -92,6 +87,7 @@ public class Login extends Application
             Menu menu = new Menu();
             menu.start(stage);
         });
+
         btnQuit.setOnAction((ActionEvent event) -> {Platform.exit();});
 
         // setting positions.
@@ -129,13 +125,7 @@ public class Login extends Application
         stage.show();
     }
 
-    private void loadImage()
-    {
-        LImg = new Image("/resources/images/Login.png");
-    }
+    private void loadImage(){LImg = new Image("/resources/images/Login.png");}
 
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
+    public static void main(String[] args){launch(args);}
 }

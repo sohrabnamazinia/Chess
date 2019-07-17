@@ -8,56 +8,68 @@ public abstract class Piece{
     public boolean color;
     public String name;
 
-    public Piece(char x, int y, boolean color, String name){
+    public Piece(char x, int y, boolean color, String name)
+    {
         setX(x);
         setY(y);
         setColor(color);
         setName(name);
     }
 
-    public void setY(int y){
+    public void setY(int y)
+    {
         this.y = y;
     }
 
-    public void setX(char x){
+    public void setX(char x)
+    {
         this.x = x;
     }
 
-    public void setName(String name){
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public void setColor(boolean color){
+    public void setColor(boolean color)
+    {
         this.color = color;
     }
 
-    public int getY(){
+    public int getY()
+    {
         return this.y;
     }
 
-    public char getX(){
+    public char getX()
+    {
         return this.x;
     }
 
-    public String getName(){
+    public String getName()
+    {
         return this.name;
     }
 
-    public boolean getColor(){
+    public boolean getColor()
+    {
         return this.color;
     }
 
-    public static Piece checkTaken(ArrayList<Piece> pieces, char x, int y){
-        for(Piece p : pieces){
-            if( p.x == x && p.y == y ){
-
+    public static Piece checkTaken(ArrayList<Piece> pieces, char x, int y)
+    {
+        for(Piece p : pieces)
+        {
+            if( p.x == x && p.y == y )
+            {
                 return p;
             }
         }
         return null;
     }
 
-    public boolean crossMove(char x, int y){
+    public boolean crossMove(char x, int y)
+    {
         return false;
     }
 

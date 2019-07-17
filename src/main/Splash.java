@@ -13,6 +13,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 public class Splash
 {
     public static String ServerIP;
+
     public void run() throws Exception
     {
         Object[] options = {"Create", "Join"};
@@ -44,7 +45,6 @@ public class Splash
             chess1.username = Login.txtFld1.getText();
             Chess.players.add(chess1);
             chess1.run();
-
         }
 
         // Client
@@ -52,6 +52,7 @@ public class Splash
         {
             boolean flag = true;
             Socket socket = null;
+
             while(flag)
             {
                 ServerIP = (String)JOptionPane.showInputDialog(null, "Enter Server IP:", "Finding Server", JOptionPane.PLAIN_MESSAGE, null, null, "x.x.x.x");
@@ -61,14 +62,11 @@ public class Splash
                     flag = false;
                 }
             }
-
             Chess chess2 = new Chess("B", socket, false);
             chess2.username = Login.txtFld1.getText();
             Chess.players.add(chess2);
             chess2.run();
             System.out.println("Connected to server");
-
-
         }
     }
 }

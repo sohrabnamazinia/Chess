@@ -17,10 +17,7 @@ public class Menu extends Application
     private Image MenuImg;
 
     @Override
-    public void start(Stage stage)
-    {
-        initUI(stage);
-    }
+    public void start(Stage stage){initUI(stage);}
 
     private void initUI(Stage stage)
     {
@@ -33,6 +30,7 @@ public class Menu extends Application
         Button btnQuit = new Button("_Quit");
         Button btnSB = new Button("_Scoreboard");
 
+        // Setting Buttons' sizes.
         btnL.setPrefWidth(125);
         btnSB.setPrefWidth(125);
 
@@ -47,6 +45,7 @@ public class Menu extends Application
             CreateAccount createAccount = new CreateAccount();
             createAccount.start(stage);
         });
+
         btnL.setOnAction((ActionEvent event) -> {
             Login login = new Login();
             login.start(stage);
@@ -55,11 +54,10 @@ public class Menu extends Application
         btnSB.setOnAction((ActionEvent event) -> {
             Stage tempStage = new Stage();
             Scoreboard scoreboard = new Scoreboard();
+
             try {
                 scoreboard.start(tempStage);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            } catch (Exception e){e.printStackTrace(); }
         });
 
         btnQuit.setOnAction((ActionEvent event) -> {Platform.exit();});
@@ -93,13 +91,7 @@ public class Menu extends Application
         stage.show();
     }
 
-    private void loadImage()
-    {
-        MenuImg = new Image("/resources/images/Menu.jpg");
-    }
+    private void loadImage(){MenuImg = new Image("/resources/images/Menu.jpg");}
 
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
+    public static void main(String[] args){launch(args);}
 }
